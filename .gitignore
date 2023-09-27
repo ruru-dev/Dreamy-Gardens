@@ -1,4 +1,4 @@
-# Logs
+# Log files
 logs
 *.log
 
@@ -7,3 +7,6 @@ node_modules/
 
 # dotenv environment variable files
 .env
+
+# public directory which will receive the built frontend code
+/public
