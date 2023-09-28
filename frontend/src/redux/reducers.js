@@ -11,4 +11,11 @@ const user = (state = null, action) => {
   }
 }
 
-export default combineReducers({ user });
+const inspos = (state = {}, action) => {
+  switch(action.type) {
+    default:
+      return state;
+  }
+}
+
+export default combineReducers({ user, inspos });
