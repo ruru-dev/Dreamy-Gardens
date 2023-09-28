@@ -1,5 +1,4 @@
 import { Box, Card, CardContent, CardMedia, Typography } from "@mui/material";
-import { ReactDOM } from "react";
 
 export default function FeaturedInspos({ inspos }) {
   return (
@@ -22,7 +21,7 @@ export default function FeaturedInspos({ inspos }) {
         const cardContent = (
           <CardContent>
             <Typography gutterBottom variant="h5" component="div">
-              {`${inspo.submitter.firstname} ${inspo.submitter.lastname
+              {`${inspo.user.firstname} ${inspo.user.lastname
                 .charAt(0)
                 .toUpperCase()}. from ${inspo.state}`}
             </Typography>

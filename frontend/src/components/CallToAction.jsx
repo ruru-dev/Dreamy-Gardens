@@ -5,7 +5,7 @@ export default function CallToAction() {
     <Box
       component={Paper}
       sx={{
-        backgroundColor: "secondary.main",
+        backgroundColor: "#9fd3a1",
         color: "white",
         height: "200px",
         display: "flex",

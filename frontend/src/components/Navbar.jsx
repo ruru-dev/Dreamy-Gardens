@@ -15,15 +15,18 @@ export default function Navbar({ user }) {
     <Box sx={{ flexGrow: 1 }}>
       <AppBar
         position="static"
-        color="secondary"
+        sx={{backgroundColor: '#9fd3a1'}}
       >
         <Toolbar>
-          <LocalFloristIcon fontSize="medium" sx={{marginRight: "5px"}} />
+          <LocalFloristIcon fontSize="medium" sx={{marginRight: "5px", color: '#F8A5B6'}} />
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
             Dreamy Gardens
           </Typography>
           <Link to="/">
             <Button color="inherit" sx={{color: "white"}}>Home</Button>
+          </Link>
+          <Link to="/gallery">
+            <Button color="inherit" sx={{color: "white"}}>Gallery</Button>
           </Link>
         </Toolbar>
       </AppBar>
