@@ -11,6 +11,9 @@ const user = (state = null, action) => {
       const {username, password} = action.value;
       Cookies.set('username', username);
       return {username: username};
+    case 'LOGOUT_USER':
+      Cookies.remove('username');
+      return null;
     default:
       return state;
   }

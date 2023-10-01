@@ -4,3 +4,10 @@ export const loginUser = (credentials) => {
     value: credentials
   }
 };
+
+export const logoutUser = () => {
+  return {
+    type: 'LOGOUT_USER',
+    value: null
+  }
+};

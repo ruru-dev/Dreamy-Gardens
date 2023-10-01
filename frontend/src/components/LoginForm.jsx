@@ -44,7 +44,7 @@ export default function LoginForm({ loginUser }) {
           Log In
         </Button>
         <Typography variant="subtitle2" align="center" my={1}>
-          Don't have an account? Click here to sign-up
+          Don't have an account? Click here to sign up.
         </Typography>
       </Stack>
     </form>
