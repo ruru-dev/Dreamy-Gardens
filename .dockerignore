@@ -1,0 +1,12 @@
+# Log files
+logs
+*.log
+
+# dotenv environment variable files
+.env
+
+# Dependency directories
+/node_modules
+
+# Source directory for the frontend code
+/frontend
