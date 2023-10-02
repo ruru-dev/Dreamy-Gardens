@@ -5,7 +5,7 @@ import GalleryInspos from "../containers/GalleryInspos";
 export default function GalleryPage({ user }) {
   return (
     <Container fixed sx={{color: '#494949'}}>
-      <PageTitle title="Gallery Page" subtitle="Find your inspiration"/>
+      <PageTitle title="Gallery Page" subtitle="Find your inspiration."/>
       <GalleryInspos />
     </Container>
   );

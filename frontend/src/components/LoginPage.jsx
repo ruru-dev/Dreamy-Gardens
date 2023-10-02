@@ -9,6 +9,9 @@ export default function LoginPage({ user }) {
           Welcome Back
         </Typography>
         <LoginForm />
+        <Typography variant="subtitle2" align="center" my={2}>
+          Don't have an account? Click here to register for free!
+        </Typography>
       </Box>
     </Container>
   );

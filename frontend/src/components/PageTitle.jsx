@@ -5,7 +5,7 @@ export default function PageTitle({ title, subtitle }) {
     <Box my={3}>
       <Typography variant="h3">{title}</Typography>
       {subtitle && (
-        <Typography variant="body1" color="text.secondary">
+        <Typography variant="subtitle1" color="text.secondary">
           {subtitle}
         </Typography>
       )}

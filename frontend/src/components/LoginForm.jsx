@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { TextField, Button, Stack, Typography } from "@mui/material";
+import { TextField, Button, Stack } from "@mui/material";
 import { alpha } from "@mui/material/styles";
 
 export default function LoginForm({ loginUser }) {
@@ -43,9 +43,6 @@ export default function LoginForm({ loginUser }) {
         >
           Log In
         </Button>
-        <Typography variant="subtitle2" align="center" my={1}>
-          Don't have an account? Click here to sign up.
-        </Typography>
       </Stack>
     </form>
   );
