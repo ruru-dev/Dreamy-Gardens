@@ -23,7 +23,7 @@ export default function Navbar({ user, logoutUser }) {
           </Typography>
           {user && (
             <>
-              <Typography mr={1.5}>Hi {user.username.toUpperCase()}</Typography>
+              <Typography mr={1.5}>Hi {user.toUpperCase()}</Typography>
               <Divider variant="middle" orientation="vertical" flexItem />
             </>
           )}

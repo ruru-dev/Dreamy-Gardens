@@ -106,7 +106,7 @@ export default function CreateInspoForm() {
         variant="contained"
         fullWidth
         sx={{
-          mt: 3,
+          mt: 2,
           bgcolor: "#9fd3a1",
           ":hover": { bgcolor: () => alpha("#9fd3a1", 0.75) },
         }}

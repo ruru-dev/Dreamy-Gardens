@@ -39,6 +39,7 @@ export default function LoginForm({ loginUser }) {
         sx={{
           bgcolor: "#9fd3a1",
           ":hover": { bgcolor: () => alpha("#9fd3a1", 0.75) },
+          mt: 2
         }}
       >
         Log In

@@ -10,7 +10,7 @@ const user = (state = null, action) => {
     case 'LOGIN_USER':
       const {username, password} = action.value;
       Cookies.set('username', username);
-      return {username: username};
+      return username;
     case 'LOGOUT_USER':
       Cookies.remove('username');
       return null;

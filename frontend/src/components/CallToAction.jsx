@@ -1,4 +1,5 @@
 import { Box, Button, Paper, Typography } from "@mui/material";
+import { Link } from "react-router-dom";
 
 export default function CallToAction() {
   return (
@@ -13,15 +14,15 @@ export default function CallToAction() {
         alignItems: "center",
         justifyContent: "center",
         rowGap: "20px",
-        margin: "50px 0"
+        margin: "50px 0",
       }}
     >
-      <Typography variant="h4">
-        Want to inspire others?
-      </Typography>
-      <Button color="inherit" variant="outlined">
-        Click Here
-      </Button>
+      <Typography variant="h4">Want to inspire others?</Typography>
+      <Link to="/register">
+        <Button sx={{ bgcolor: "white", color: "grey"}} variant="filled">
+          Click Here to Get Started!
+        </Button>
+      </Link>
     </Box>
   );
 }
