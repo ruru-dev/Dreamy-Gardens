@@ -1,7 +1,7 @@
 import store from "./redux/store";
 import { Provider } from "react-redux";
 import { BrowserRouter } from "react-router-dom";
-import Router from "./components/Router";
+import Router from "./containers/Router";
 import Navbar from "./containers/Navbar";
 
 import "./App.css";

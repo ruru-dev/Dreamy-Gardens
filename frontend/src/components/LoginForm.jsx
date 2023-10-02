@@ -15,35 +15,34 @@ export default function LoginForm({ loginUser }) {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
-      <Stack>
-        <TextField
-          required
-          label="Username"
-          variant="standard"
-          onChange={(e) => setUsername(e.target.value)}
-          type="email"
-        />
-        <TextField
-          required
-          label="Password"
-          variant="standard"
-          onChange={(e) => setPassword(e.target.value)}
-          type="password"
-        />
-        <Button
-          type="submit"
-          variant="contained"
-          fullWidth
-          sx={{
-            mt: 3,
-            bgcolor: "#9fd3a1",
-            ":hover": { bgcolor: (theme) => alpha("#9fd3a1", 0.75) },
-          }}
-        >
-          Log In
-        </Button>
-      </Stack>
-    </form>
+    <Stack component="form" onSubmit={handleSubmit} gap={2}>
+      <TextField
+        required
+        label="Username"
+        variant="outlined"
+        size="small"
+        onChange={(e) => setUsername(e.target.value)}
+        type="email"
+      />
+      <TextField
+        required
+        label="Password"
+        variant="outlined"
+        size="small"
+        onChange={(e) => setPassword(e.target.value)}
+        type="password"
+      />
+      <Button
+        type="submit"
+        variant="contained"
+        fullWidth
+        sx={{
+          bgcolor: "#9fd3a1",
+          ":hover": { bgcolor: () => alpha("#9fd3a1", 0.75) },
+        }}
+      >
+        Log In
+      </Button>
+    </Stack>
   );
 }

@@ -33,9 +33,11 @@ export default function Navbar({ user, logoutUser }) {
           <Link to="/gallery">
             <Button sx={{ color: "common.white" }}>Gallery</Button>
           </Link>
-          <Link to="/create">
-            <Button sx={{ color: "common.white" }}>Create</Button>
-          </Link>
+          {user && (
+            <Link to="/create">
+              <Button sx={{ color: "common.white" }}>Create</Button>
+            </Link>
+          )}
           {user ? (
             <Button sx={{ color: "common.white" }} onClick={() => logoutUser()}>
               Logout
