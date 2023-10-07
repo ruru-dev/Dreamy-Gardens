@@ -11,7 +11,7 @@ export default function HomePage({ user }) {
         title="Welcome to Dreamy Gardens"
         subtitle="Search and upload beautiful garden photos with the plants identified!"
       />
-      <Banner imageUrl="images/banner-image.jpg" />
+      <Banner imageUrl="images/banner.jpg" />
       <FeaturedInspos />
       <CallToAction />
     </Container>
