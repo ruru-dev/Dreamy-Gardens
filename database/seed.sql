@@ -1,13 +1,10 @@
 -- Active: 1696784798147@@database-1.cx1cyrefruio.us-east-2.rds.amazonaws.com@3306@dreamy_gardens
-
 DELETE FROM `tag`;
-
 DELETE FROM `inspo`;
-
 DELETE FROM `plant`;
-
 DELETE FROM `user`;
 
+# Backticks escape the SQL keywords, typically used for table and column names.
 INSERT INTO
     `user` (
         `username`,

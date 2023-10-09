@@ -1,5 +1,6 @@
 ### DROP EXISTING TABLES
-DROP TABLE if EXISTS `tag`;
+#Deletion order of tables matters due to foreign key dependencies.
+DROP TABLE IF EXISTS `tag`;
 DROP TABLE IF EXISTS `inspo`;
 DROP TABLE IF EXISTS `plant`;
 DROP TABLE IF EXISTS `user`;
