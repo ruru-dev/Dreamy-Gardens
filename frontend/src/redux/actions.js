@@ -11,3 +11,14 @@ export const logoutUser = () => {
     value: null
   }
 };
+
+export const fetchGalleryInpos = (dispatch) => {
+  fetch(`/api/inspos`)
+  .then(response => response.json())
+  .then(data => {
+    dispatch({
+      type: 'FETCH_GALLERY_INSPOS',
+      value: data
+    })
+  })
+}

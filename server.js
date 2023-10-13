@@ -1,6 +1,5 @@
 // In order to use the express npm package you need to require it
 const express = require('express');
-
 const path = require('path');
 
 // The config method injects the variables contained in the .env file into the process.env object
@@ -28,9 +27,7 @@ app.use(express.static('public'));
  * - Search for an express route that matches the path in the url.
  * - (e.g. http://dreamygardens.com/api/inspos)
  */
-app.get('/api', (req, res) => {
-    res.send('My first GET API route');
-})
+app.use('/api', require('./routes/inspos'));
 
 /*
  * If the route isn't found in the backend API, load the frontend and attempt to route to a page.

@@ -21,6 +21,8 @@ const user = (state = null, action) => {
 
 const inspos = (state = {}, action) => {
   switch(action.type) {
+    case 'FETCH_GALLERY_INSPOS':
+      return { ...state, gallery: action.value }
     default:
       return state;
   }
