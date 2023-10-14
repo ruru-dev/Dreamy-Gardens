@@ -1,13 +1,20 @@
+import { useEffect } from "react";
 import { Box, Card, CardContent, CardMedia, Typography } from "@mui/material";
 
-export default function FeaturedInspos({ inspos }) {
+export default function FeaturedInspos({ featuredInspos, fetchFeaturedInspos }) {
+  useEffect(() => {
+    if (!featuredInspos.length) {
+      fetchFeaturedInspos();
+    }
+  }, []);
+
   return (
     <Box sx={{ marginTop: 5 }}>
       <Typography gutterBottom variant="h4" align="center">
         Featured Inspos
       </Typography>
       
-      {inspos.map((inspo, i) => {
+      {featuredInspos.map((inspo, i) => {
         const cardMedia = (
           <CardMedia
             component="img"

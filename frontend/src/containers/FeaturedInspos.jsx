@@ -1,9 +1,14 @@
 import { connect } from 'react-redux';
 import FeaturedInspos from '../components/FeaturedInspos';
+import { fetchFeaturedInpos } from '../redux/actions';
 
 const mapStateToProps = (state) => ({
   user: state.user,
-  inspos: state.inspos.featured
+  featuredInspos: state.inspos.featured
 });
 
-export default connect(mapStateToProps)(FeaturedInspos);
+const mapDispatchToProps = (dispatch) => ({
+  fetchFeaturedInspos: () => fetchFeaturedInpos(dispatch)
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(FeaturedInspos);

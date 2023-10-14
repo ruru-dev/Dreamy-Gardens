@@ -4,7 +4,7 @@ import { fetchGalleryInpos } from '../redux/actions';
 
 const mapStateToProps = (state) => ({
   user: state.user,
-  inspos: state.inspos.gallery
+  galleryInspos: state.inspos.gallery
 });
 
 const mapDispatchToProps = (dispatch) => ({

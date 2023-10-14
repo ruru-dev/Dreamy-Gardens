@@ -13,7 +13,7 @@ export const logoutUser = () => {
 };
 
 export const fetchGalleryInpos = (dispatch) => {
-  fetch(`/api/inspos`)
+  fetch('/api/inspos')
   .then(response => response.json())
   .then(data => {
     dispatch({
@@ -21,4 +21,15 @@ export const fetchGalleryInpos = (dispatch) => {
       value: data
     })
   })
-}
+};
+
+export const fetchFeaturedInpos = (dispatch) => {
+  fetch(`/api/inspos?keyword=featured`)
+  .then(response => response.json())
+  .then(data => {
+    dispatch({
+      type: 'FETCH_FEATURED_INSPOS',
+      value: data
+    })
+  })
+};

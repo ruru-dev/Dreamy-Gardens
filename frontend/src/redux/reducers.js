@@ -23,6 +23,8 @@ const inspos = (state = {}, action) => {
   switch(action.type) {
     case 'FETCH_GALLERY_INSPOS':
       return { ...state, gallery: action.value }
+    case 'FETCH_FEATURED_INSPOS':
+      return { ...state, featured: action.value }
     default:
       return state;
   }

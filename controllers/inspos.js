@@ -3,6 +3,9 @@ const db = require("../services/database");
 
 // Controller function to list all inspos.
 const listInspos = (req, res) => {
+  const keywordClause =
+    req.query.keyword == "featured" ? `WHERE i.featured = true` : "";
+
   // The SQL query that will fetch all records from our inspo table.
   const sql = `
   SELECT
@@ -10,7 +13,8 @@ const listInspos = (req, res) => {
     u.firstname as user_firstname,
     u.lastname as user_lastname
   FROM inspo i
-      JOIN \`user\` u ON i.user_id = u.id
+    JOIN \`user\` u ON i.user_id = u.id
+  ${keywordClause}
   ORDER BY i.id
   `;
 
@@ -28,22 +32,45 @@ const listInspos = (req, res) => {
     }
     // Handle scenario where we successfully fetch from the database.
     else {
-      // Anything in the 200's is a success. 200 is a generic success message.
-      // Here we used status as opposed to sendstatus because we do not want to immediately send back a response.
+      // Map over every inspo from our query result and convert it into a structrured object
       const inspos = results.map((row) => {
+        // The query result has data from multiple tables (inspo, user) - destructure the data we need
         const { user_id, user_firstname, user_lastname, ...inspoData } = row;
 
+        // encapsulate all user data into its own object
         const user = {
           user_id: user_id,
           firstname: user_firstname,
           lastname: user_lastname,
         };
 
+        // encapsulate all tag data into its own array of objects (empty for now)
         const tags = [];
 
+        /* 
+         * return an object with the data in a proper nested hierarchy 
+         * e.g.
+         * {
+         *   id: 1,
+         *   imageUrl: "http://urltoimage.com",
+         *   description: 'My first garden inspo',
+         *   .
+         *   .
+         *   user: {
+         *     id: 1,
+         *     firstname: "John",
+         *     lastname: "Doe"
+         *   },
+         *   tags: []
+         * }
+         */
         return { ...inspoData, user, tags };
       });
 
+      /*
+       * Here we used status as opposed to sendstatus because we do not want to immediately send back a response.
+       * Anything in the 200's is a success. 200 is a generic success message.
+       */
       res.status(200).json(inspos);
     }
   });
