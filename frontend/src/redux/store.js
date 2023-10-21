@@ -3,7 +3,7 @@
  * This is what will give our components access to the state data maintained by redux.
  */
 import { createStore, applyMiddleware } from 'redux';
-import thunk from 'redux-thunk'
+import thunk from 'redux-thunk';
 import reducers from './reducers';
 import state from './state';
 

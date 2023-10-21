@@ -6,28 +6,28 @@ import { combineReducers } from 'redux';
 import Cookies from 'js-cookie';
 
 const user = (state = null, action) => {
-  switch(action.type) {
-    case 'LOGIN_USER':
-      const {username, password} = action.value;
-      Cookies.set('username', username);
-      return username;
-    case 'LOGOUT_USER':
-      Cookies.remove('username');
-      return null;
-    default:
-      return state;
-  }
-}
+    switch (action.type) {
+        case 'LOGIN_USER':
+            const { username, password } = action.value;
+            Cookies.set('username', username);
+            return username;
+        case 'LOGOUT_USER':
+            Cookies.remove('username');
+            return null;
+        default:
+            return state;
+    }
+};
 
 const inspos = (state = {}, action) => {
-  switch(action.type) {
-    case 'FETCH_GALLERY_INSPOS':
-      return { ...state, gallery: action.value }
-    case 'FETCH_FEATURED_INSPOS':
-      return { ...state, featured: action.value }
-    default:
-      return state;
-  }
-}
+    switch (action.type) {
+        case 'FETCH_GALLERY_INSPOS':
+            return { ...state, gallery: action.value };
+        case 'FETCH_FEATURED_INSPOS':
+            return { ...state, featured: action.value };
+        default:
+            return state;
+    }
+};
 
 export default combineReducers({ user, inspos });
