@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 import { TextField, Button, Stack, Typography, Divider } from '@mui/material';
 import { EmojiPeople as PersonIcon } from '@mui/icons-material';
 import { alpha } from '@mui/material/styles';
@@ -7,9 +6,7 @@ import ZoneSelect from './ZoneSelect';
 import StateSelect from './StateSelect';
 import CountrySelect from './CountrySelect';
 
-export default function CreateInspoForm() {
-    const navigate = useNavigate();
-
+export default function CreateInspoForm({ user, createInspo }) {
     const [formValues, setFormValues] = useState({
         description: '',
         image: '',
@@ -25,15 +22,23 @@ export default function CreateInspoForm() {
 
     function handleChange(e) {
         setFormValues({ ...formValues, [e.target.name]: e.target.value });
+        console.log(`value of ${e.target.name} changed`, e.target.value);
     }
 
-    function handleSubmit(e) {
+    async function handleSubmit(e) {
         e.preventDefault();
-        alert('Submitted');
+        console.log('in form - begin submit');
+        await createInspo(e.target);
+        console.log('in form - end submit');
     }
 
     return (
-        <Stack component="form" onSubmit={handleSubmit} gap={2}>
+        <Stack
+            component="form"
+            id="form-inspo-create"
+            onSubmit={handleSubmit}
+            gap={2}
+        >
             <Typography variant="subtitle1" align="center">
                 Provide as much information as possible to help your fellow
                 gardeners

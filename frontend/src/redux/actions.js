@@ -1,3 +1,5 @@
+import axios from 'axios';
+
 export const loginUser = (credentials) => {
     return {
         type: 'LOGIN_USER',
@@ -12,24 +14,31 @@ export const logoutUser = () => {
     };
 };
 
-export const fetchGalleryInpos = (dispatch) => {
-    fetch('/api/inspos')
-        .then((response) => response.json())
-        .then((data) => {
-            dispatch({
-                type: 'FETCH_GALLERY_INSPOS',
-                value: data
-            });
-        });
+export const fetchGalleryInpos = async (dispatch) => {
+    const response = await axios.get('/api/inspos');
+    dispatch({
+        type: 'FETCH_GALLERY_INSPOS',
+        value: response.data
+    });
 };
 
-export const fetchFeaturedInpos = (dispatch) => {
-    fetch(`/api/inspos?keyword=featured`)
-        .then((response) => response.json())
-        .then((data) => {
-            dispatch({
-                type: 'FETCH_FEATURED_INSPOS',
-                value: data
-            });
-        });
+export const fetchFeaturedInpos = async (dispatch) => {
+    const response = await axios.get(`/api/inspos?keyword=featured`);
+    dispatch({
+        type: 'FETCH_FEATURED_INSPOS',
+        value: response.data
+    });
+};
+
+export const createInspo = async (dispatch, formEl) => {
+    console.log('in action - begin create inspo api call');
+    const response = await axios.post(`/api/inspos`, new FormData(formEl));
+    console.log('in action - end create inspo api call');
+
+    dispatch({
+        type: 'CREATE_INSPO',
+        value: response.data
+    });
+
+    return response;
 };
