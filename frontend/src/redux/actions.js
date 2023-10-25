@@ -14,8 +14,10 @@ export const logoutUser = () => {
     };
 };
 
+const backendUrl = process.env.REACT_APP_BACKEND_URL || '';
+
 export const fetchGalleryInpos = async (dispatch) => {
-    const response = await axios.get('/api/inspos');
+    const response = await axios.get(`${backendUrl}/api/inspos`);
     dispatch({
         type: 'FETCH_GALLERY_INSPOS',
         value: response.data
@@ -23,7 +25,7 @@ export const fetchGalleryInpos = async (dispatch) => {
 };
 
 export const fetchFeaturedInpos = async (dispatch) => {
-    const response = await axios.get(`/api/inspos?keyword=featured`);
+    const response = await axios.get(`${backendUrl}/api/inspos?keyword=featured`);
     dispatch({
         type: 'FETCH_FEATURED_INSPOS',
         value: response.data
@@ -32,13 +34,17 @@ export const fetchFeaturedInpos = async (dispatch) => {
 
 export const createInspo = async (dispatch, formEl) => {
     console.log('in action - begin create inspo api call');
-    const response = await axios.post(`/api/inspos`, new FormData(formEl));
+    let response;
+    try {
+        response = await axios.post(`${backendUrl}/api/inspos`, new FormData(formEl));
+        dispatch({
+            type: 'CREATE_INSPO',
+            value: response.data
+        });
+    } catch(error) {
+        response = error.response;
+    }    
     console.log('in action - end create inspo api call');
-
-    dispatch({
-        type: 'CREATE_INSPO',
-        value: response.data
-    });
 
     return response;
 };

@@ -26,8 +26,8 @@ const inspos = (state = {}, action) => {
         case 'FETCH_FEATURED_INSPOS':
             return { ...state, featured: action.value };
         case 'CREATE_INSPO':
-            console.log('in reducer - received CREATE_INSPO')
-            return state;
+            console.log('in reducer - received CREATE_INSPO');
+            return { ...state, gallery: [] };
         default:
             return state;
     }

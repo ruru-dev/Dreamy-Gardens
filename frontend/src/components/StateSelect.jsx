@@ -1,6 +1,10 @@
 import { MenuItem, TextField } from '@mui/material';
 
-export default function StateSelect({ state, handleChange, required = false }) {
+export default function StateSelect({
+    value = '',
+    handleChange,
+    required = false
+}) {
     const options = [
         { label: 'Alabama', value: 'AL' },
         { label: 'Alaska', value: 'AK' },
@@ -61,7 +65,7 @@ export default function StateSelect({ state, handleChange, required = false }) {
             select
             variant="outlined"
             size="small"
-            value={state}
+            value={value}
             onChange={handleChange}
             SelectProps={{ MenuProps: { style: { maxHeight: 400 } } }}
             required={required}

@@ -1,7 +1,7 @@
 import { MenuItem, TextField } from '@mui/material';
 
 export default function CountrySelect({
-    country,
+    value = '',
     handleChange,
     required = false
 }) {
@@ -14,7 +14,7 @@ export default function CountrySelect({
             select
             variant="outlined"
             size="small"
-            value={country}
+            value={value}
             onChange={handleChange}
             SelectProps={{ MenuProps: { style: { maxHeight: 400 } } }}
             required={required}

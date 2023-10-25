@@ -1,6 +1,10 @@
 import { MenuItem, TextField } from '@mui/material';
 
-export default function ZoneSelect({ zone, handleChange, required = false }) {
+export default function ZoneSelect({
+    value = '',
+    handleChange,
+    required = false
+}) {
     const options = [
         { value: '1a', label: '1a' },
         { value: '1b', label: '1b' },
@@ -37,7 +41,7 @@ export default function ZoneSelect({ zone, handleChange, required = false }) {
             select
             variant="outlined"
             size="small"
-            value={zone}
+            value={value}
             onChange={handleChange}
             SelectProps={{ MenuProps: { style: { maxHeight: 400 } } }}
             required={required}
