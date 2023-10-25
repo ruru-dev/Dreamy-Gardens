@@ -18,6 +18,13 @@ require('dotenv').config();
 const app = express();
 
 /*
+ * This is needed for local development if we want to run express and react as separate servers.
+ * In production, they will be served by a single server so there will be no cross-origin requests.
+ */
+const cors = require('cors');
+app.use(cors());
+
+/*
  * Add body-parser middleware to detect if we have received a request as an HTML form submission.
  * (i.e. Content-Type: application/x-www-form-urlencoded)
  *
