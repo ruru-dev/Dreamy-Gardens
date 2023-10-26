@@ -48,3 +48,20 @@ export const createInspo = async (dispatch, formEl) => {
 
     return response;
 };
+
+export const createUser = async (dispatch, formValues) => {
+    console.log('in action - begin create user api call');
+    let response;
+    try {
+        response = await axios.post(`${backendUrl}/api/users`, formValues);
+        dispatch({
+            type: 'CREATE_USER',
+            value: response.data
+        });
+    } catch(error) {
+        response = error.response;
+    }    
+    console.log('in action - end create user api call');
+
+    return response;
+};

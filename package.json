@@ -30,6 +30,7 @@
     },
     "homepage": "https://github.com/ruru-dev/Dreamy-Gardens#readme",
     "dependencies": {
+        "argon2": "^0.31.1",
         "body-parser": "^1.20.2",
         "cloudinary": "^1.41.0",
         "cors": "^2.8.5",

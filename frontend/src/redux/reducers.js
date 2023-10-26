@@ -7,6 +7,9 @@ import Cookies from 'js-cookie';
 
 const user = (state = null, action) => {
     switch (action.type) {
+        case 'CREATE_USER':
+            console.log('in reducer - received CREATE_USER');
+            return state;
         case 'LOGIN_USER':
             const { username, password } = action.value;
             Cookies.set('username', username);

@@ -9,12 +9,12 @@ DROP TABLE IF EXISTS `user`;
 CREATE TABLE
     `user` (
         `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
-        `username` VARCHAR(100) NOT NULL,
+        `email` VARCHAR(100) DEFAULT NULL,
         `password` VARCHAR(1000) NOT NULL,
         `firstname` VARCHAR(20) DEFAULT NULL,
         `lastname` VARCHAR(25) DEFAULT NULL,
         `base_zone` VARCHAR(25) DEFAULT NULL,
-        `email` VARCHAR(30) DEFAULT NULL,
+        `create_date` DATETIME DEFAULT NULL,
         PRIMARY KEY (`id`)
     );
 

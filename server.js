@@ -33,6 +33,13 @@ app.use(cors());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 /*
+ * This is a .json method on the bodyParser object
+ * 
+ * It will parse the incoming request body as json for us.
+ */ 
+app.use(bodyParser.json());
+
+/*
  * If the request is for a static file, attempt to serve it directly from the "public" folder.
  *
  * - This middleware makes all files in the "public" folder directly accessible to the internet.
@@ -47,7 +54,7 @@ app.use(express.static('public'));
  * - Search for an express route that matches the path in the url.
  * - (e.g. http://dreamygardens.com/api/inspos)
  */
-app.use('/api', require('./routes/inspos'));
+app.use('/api', require('./routes'));
 
 /*
  * If the route isn't found in the backend API, load the frontend and attempt to route to a page.
