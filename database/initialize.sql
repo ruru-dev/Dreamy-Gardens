@@ -22,12 +22,19 @@ CREATE TABLE
 CREATE TABLE
     `plant` (
         `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
-        `common_name` VARCHAR(50) DEFAULT NULL,
-        `botanical_name` VARCHAR(50) DEFAULT NULL,
-        `zone` VARCHAR(15) DEFAULT NULL,
-        `sun_exposure` VARCHAR(50) DEFAULT NULL,
+        `common_name` VARCHAR(100) DEFAULT NULL,
+        `botanical_name` VARCHAR(100) DEFAULT NULL,
+        `type` VARCHAR(100) DEFAULT NULL,
+        `zone` VARCHAR(50) DEFAULT NULL,
         `height` VARCHAR(50) DEFAULT NULL,
         `width` VARCHAR(50) DEFAULT NULL,
+        `sunlight` VARCHAR(100) DEFAULT NULL,
+        `bloom_season` VARCHAR(100) DEFAULT NULL,
+        `bloom_color` VARCHAR(100) DEFAULT NULL,
+        `growth_rate` VARCHAR(100) DEFAULT NULL,
+        `growth_habit` VARCHAR(100) DEFAULT NULL,
+        `watering` VARCHAR(100) DEFAULT NULL,
+        `deer_resistant` VARCHAR(100) DEFAULT NULL,
         PRIMARY KEY (`id`)
     );
 

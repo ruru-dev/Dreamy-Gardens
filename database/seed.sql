@@ -1,4 +1,4 @@
--- Active: 1696784798147@@database-1.cx1cyrefruio.us-east-2.rds.amazonaws.com@3306@dreamy_gardens
+-- Active: 1696814090562@@database-1.cx1cyrefruio.us-east-2.rds.amazonaws.com@3306@dreamy_gardens
 DELETE FROM `tag`;
 DELETE FROM `inspo`;
 DELETE FROM `plant`;
@@ -186,4 +186,190 @@ VALUES (
         null,
         null,
         false
+    );
+
+    INSERT INTO
+    `plant` (
+        `common_name`,
+        `botanical_name`,
+        `type`,
+        `zone`,
+        `height`,
+        `width`,
+        `sunlight`,
+        `bloom_season`,
+        `bloom_color`,
+        `growth_rate`,
+        `growth_habit`,
+        `watering`,
+        `deer_resistant`
+    )
+VALUES (
+        'Double Red Knockout Rose',
+        'Rosa Radtko',
+        'Deciduous Shrub',
+        '5a-10b',
+        '3-4 ft',
+        '3-4 ft',
+        'Part Sun, Full Sun',
+        'Spring, Summer, Fall',
+        'Red',
+        'Fast',
+        'Bushy',
+        'Moderate',
+        'No'
+    ), (
+        'White Wedding Hydrangea',
+        'Rosa Radtko',
+        'Deciduous Shrub',
+        '4a-9b',
+        '4-6 ft',
+        '3-5 ft',
+        'Part Sun, Full Sun',
+        'Spring, Summer, Fall',
+        'White',
+        'Fast',
+        'NULL',
+        'Moderate',
+        'No'
+    ), (
+        'Blue Hill Salvia',
+        'Salvia nemerosa \'Blauhügel\'',
+        'Perennial',
+        '4a-8b',
+        '16-20 in',
+        NULL,
+        'Full Sun',
+        'Summer',
+        'Lilac',
+        'Fast',
+        'NULL',
+        'Low',
+        'Yes'
+    ), (
+        'Silver Falls Dichondra',
+        'Dichondra Argentea',
+        'Tender Herbaceous Perennial',
+        '9a-11b',
+        '2-6 in',
+        '18-36 in',
+        'Part Sun, Full Sun',
+        'NULL',
+        'Lilac',
+        'Fast',
+        'Trailing',
+        'Low',
+        'Yes'
+    ), (
+        'Sprinter Boxwood',
+        'Buxus microphylla',
+        'Shrub, Evergreen',
+        '5a-9b',
+        '2-4 ft',
+        '2-4 ft',
+        'Full Shade, Part Sun, Full Sun',
+        'NULL',
+        'NULL',
+        'Slow',
+        'NULL',
+        'Low',
+        'Yes'
+    ), (
+        'Blue Point Juniper',
+        'Juniperus chinensis \'Blue Point\'',
+        'Evergreen Tree',
+        '4a-9b',
+        '4-12 ft',
+        '2-8 ft',
+        'Full Shade, Part Sun, Full Sun',
+        'NULL',
+        'NULL',
+        'Moderate',
+        'Pyramidal',
+        'Low',
+        'Yes'
+    ), (
+        'Limelight Prime Hydrangea',
+        'Hydrangea paniculata \'SMNHPPH\'',
+        'Deciduous Shrub',
+        '3a-8b',
+        '4-6 ft',
+        '4-5 ft',
+        'Part Sun, Full Sun',
+        'Summer, Fall',
+        'Lime Green, Pink',
+        'Fast',
+        'Upright Rounded',
+        'Moderate',
+        'No'
+    ), (
+        'Sky Pencil Japanese Holly',
+        'Ilex crenata \'Sky Pencil\'',
+        'Evergreen',
+        '5a-8b',
+        '4-10 ft',
+        '1-3 ft',
+        'Part Sun, Full Sun',
+        'NULL',
+        'NULL',
+        'Slow',
+        'Narrow, Columnar, Compact',
+        'Moderate',
+        'Yes'
+    ), (
+        'Midnight Magic Crape Myrtle',
+        'Lagerstroemia indica',
+        'Deciduous',
+        '6a-9b',
+        '4-6 ft',
+        '4-6 ft',
+        'Full Sun',
+        'Summer, Fall',
+        'Pink',
+        'Fast',
+        'Rounded, Compact',
+        'Moderate',
+        'Yes'
+    ), (
+        'Pentas',
+        'Pentas lanceolata',
+        'Annual',
+        '10a-11b',
+        '18-36 in',
+        '12-48 in',
+        'Full Sun',
+        'Spring, Summer, Fall',
+        'Pink, Purple, White, Red',
+        'Fast',
+        'NULL',
+        'Moderate',
+        'Yes'
+    ), (
+        'Sunshine Ligustrum',
+        'Ligustrum sinense \'Sunshine\' PP20379',
+        'Evergreen, Semi-deciduous',
+        '6a-10b',
+        '3-6 ft',
+        '3-4 ft',
+        'Full Sun',
+        'NULL',
+        'NULL',
+        'Fast',
+        'Upright',
+        'Moderate',
+        'Yes'
+    ), (
+        'Star Jasmine Vine',
+        'Trachelospermum jasminoides',
+        'Evergreen, Woody-Vine',
+        '8a-11b',
+        '15-20 ft',
+        '6-8 ft',
+        'Part Sun, Full Sun',
+        'Spring',
+        'White',
+        'Fast',
+        'Trailing',
+        'Moderate',
+        'Yes'
     );
