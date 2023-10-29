@@ -11,11 +11,15 @@ const listInspos = (req, res) => {
     SELECT
         i.*,
         u.firstname as user_firstname,
-        u.lastname as user_lastname
+        u.lastname as user_lastname,
+        p.id as plant_id,
+        p.common_name AS plant_common_name
     FROM inspo i
-        JOIN \`user\` u ON i.user_id = u.id
-    ${keywordClause}
-    ORDER BY i.id
+        JOIN \`user\` u ON u.id = i.user_id
+        LEFT JOIN tag t ON t.inspo_id = i.id
+        LEFT JOIN plant p ON p.id = t.plant_id
+        ${keywordClause}
+        ORDER BY i.id
     `;
 
     // Send the query to our database, using the connection we created (db object).
@@ -32,41 +36,49 @@ const listInspos = (req, res) => {
         }
         // Handle scenario where we successfully fetch from the database.
         else {
-            // Map over every inspo from our query result and convert it into a structrured object
-            const inspos = results.map((row) => {
-                // The query result has data from multiple tables (inspo, user) - destructure the data we need
-                const { user_id, user_firstname, user_lastname, ...inspoData } =
-                    row;
+            const inspos = [];
+            let currentInspo = {};
 
-                // encapsulate all user data into its own object
-                const user = {
-                    user_id: user_id,
-                    firstname: user_firstname,
-                    lastname: user_lastname
-                };
-
-                // encapsulate all tag data into its own array of objects (empty for now)
-                const tags = [];
+            /**
+             * The query result will return data from multiple tables (inspo, user, tag).
+             * We'll need to loop over each row and build an object to represent each inspo.
+             */
+            for (let row of results) {
+                // Destructure the data we'll need from the row.
+                const {
+                    user_id,
+                    user_firstname,
+                    user_lastname,
+                    plant_id,
+                    plant_common_name,
+                    ...inspoData
+                } = row;
 
                 /*
-                 * return an object with the data in a proper nested hierarchy
-                 * e.g.
-                 * {
-                 *   id: 1,
-                 *   imageUrl: "http://urltoimage.com",
-                 *   description: 'My first garden inspo',
-                 *   .
-                 *   .
-                 *   user: {
-                 *     id: 1,
-                 *     firstname: "John",
-                 *     lastname: "Doe"
-                 *   },
-                 *   tags: []
-                 * }
+                 * As we're looping over the results, build a new object only when we encounter a different inspo id.
+                 * We will see the same inspo id multiple times - once for every plant that's tagged in it.
                  */
-                return { ...inspoData, user, tags };
-            });
+                if (currentInspo.id !== inspoData.id) {
+                    // Build an inspo object with nested data for the user and tags
+                    currentInspo = {
+                        ...inspoData,
+                        user: {
+                            user_id: user_id,
+                            firstname: user_firstname,
+                            lastname: user_lastname
+                        },
+                        tags: []
+                    };
+
+                    // Add it to the array of inspos that will be returned in the response
+                    inspos.push(currentInspo);
+                }
+
+                /*
+                 * Since each row represents a different tagged plant, we'll need to push it onto the current inspo every time we loop.
+                 */
+                currentInspo.tags.push(plant_common_name);
+            }
 
             /*
              * Here we used status as opposed to sendstatus because we do not want to immediately send back a response.
@@ -99,10 +111,10 @@ const createInspo = (req, res) => {
       (?,?,?,?,?,?,?,?,?,?,?)
     `;
 
-    /* 
+    /*
      * Because our query is parameterized, we need to provide the values to inject into the query.
      * By parameterizing the query, we ensure that users cannot manipulate our SQL query. This is a secure practice.
-     */ 
+     */
     const params = [
         1,
         req.body.description,
@@ -119,7 +131,7 @@ const createInspo = (req, res) => {
 
     // Send the query to our database, using the connection we created (db object).
     db.query(sql, params, function (err, results) {
-        // If an error occurred while saving the inspo, send a 500 response 
+        // If an error occurred while saving the inspo, send a 500 response
         if (err) {
             console.log(
                 'An error occurred while attempting to save the inspo to the database.',
@@ -132,13 +144,15 @@ const createInspo = (req, res) => {
             const taggedPlantIds = req.body.tagged_plants || [];
 
             // Verify that at least one plant was tagged on the inspo
-            if (taggedPlantIds.length <= 0 ) {
-                return res.status(400).send('The Inspo must contain at least one tagged plant.');
+            if (taggedPlantIds.length <= 0) {
+                return res
+                    .status(400)
+                    .send('The Inspo must contain at least one tagged plant.');
             }
 
             // Attempt to save the tags to the database
             try {
-                saveTaggedPlants(results.insertId, taggedPlantIds);
+                createTags(results.insertId, taggedPlantIds);
             } catch (err) {
                 return res.sendStatus(500);
             }
@@ -149,8 +163,8 @@ const createInspo = (req, res) => {
     });
 };
 
-const saveTaggedPlants = (inspoId, taggedPlantIds) => {
-    console.log('Attempting to save tags to the database')
+const createTags = (inspoId, taggedPlantIds) => {
+    console.log('Attempting to save tags to the database');
     const placeholders = [];
     const params = [];
 
@@ -158,7 +172,7 @@ const saveTaggedPlants = (inspoId, taggedPlantIds) => {
         placeholders.push('(?,?)');
         params.push(parseInt(inspoId), parseInt(plantId));
     }
-    
+
     const sql = `
     INSERT INTO tag
         (
@@ -171,12 +185,15 @@ const saveTaggedPlants = (inspoId, taggedPlantIds) => {
     // Send the query to our database, using the connection we created (db object).
     db.query(sql, params, function (err, results) {
         if (err) {
-            console.log('An error occurred while attempting to save the tags to the database.', err);
+            console.log(
+                'An error occurred while attempting to save the tags to the database.',
+                err
+            );
             throw err;
         } else {
-            console.log('Done saving tags to the database')
+            console.log('Done saving tags to the database');
         }
     });
-}
+};
 
 module.exports = { listInspos, createInspo };

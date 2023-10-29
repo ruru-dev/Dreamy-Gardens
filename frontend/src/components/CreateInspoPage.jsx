@@ -14,7 +14,7 @@ export default function CreateInspoPage() {
             }}
         >
             <PageTitle title="Create an Inspo" />
-            <Box sx={{ width: 650, mx: 'auto', mt: 1 }}>
+            <Box sx={{ width: 650, mx: 'auto', mt: 1, mb: 5 }}>
                 <CreateInspoForm />
             </Box>
         </Container>
