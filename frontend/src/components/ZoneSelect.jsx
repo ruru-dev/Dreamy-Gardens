@@ -36,9 +36,9 @@ export default function ZoneSelect({
 
     return (
         <TextField
+            select 
             name="zone"
             label="Zone"
-            select
             variant="outlined"
             size="small"
             value={value}

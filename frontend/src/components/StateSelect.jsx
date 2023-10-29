@@ -6,63 +6,63 @@ export default function StateSelect({
     required = false
 }) {
     const options = [
-        { label: 'Alabama', value: 'AL' },
-        { label: 'Alaska', value: 'AK' },
-        { label: 'Arizona', value: 'AZ' },
-        { label: 'Arkansas', value: 'AR' },
-        { label: 'California', value: 'CA' },
-        { label: 'Colorado', value: 'CO' },
-        { label: 'Connecticut', value: 'CT' },
-        { label: 'Delaware', value: 'DE' },
-        { label: 'Florida', value: 'FL' },
-        { label: 'Georgia', value: 'GA' },
-        { label: 'Hawaii', value: 'HI' },
-        { label: 'Idaho', value: 'ID' },
-        { label: 'Illinois', value: 'IL' },
-        { label: 'Indiana', value: 'IN' },
-        { label: 'Iowa', value: 'IA' },
-        { label: 'Kansas', value: 'KS' },
-        { label: 'Kentucky', value: 'KY' },
-        { label: 'Louisiana', value: 'LA' },
-        { label: 'Maine', value: 'ME' },
-        { label: 'Maryland', value: 'MD' },
-        { label: 'Massachusetts', value: 'MA' },
-        { label: 'Michigan', value: 'MI' },
-        { label: 'Minnesota', value: 'MN' },
-        { label: 'Mississippi', value: 'MS' },
-        { label: 'Missouri', value: 'MO' },
-        { label: 'Montana', value: 'MT' },
-        { label: 'Nebraska', value: 'NE' },
-        { label: 'Nevada', value: 'NV' },
-        { label: 'New Hampshire', value: 'NH' },
-        { label: 'New Jersey', value: 'NJ' },
-        { label: 'New Mexico', value: 'NM' },
-        { label: 'New York', value: 'NY' },
-        { label: 'North Carolina', value: 'NC' },
-        { label: 'North Dakota', value: 'ND' },
-        { label: 'Ohio', value: 'OH' },
-        { label: 'Oklahoma', value: 'OK' },
-        { label: 'Oregon', value: 'OR' },
-        { label: 'Pennsylvania', value: 'PA' },
-        { label: 'Rhode Island', value: 'RI' },
-        { label: 'South Carolina', value: 'SC' },
-        { label: 'South Dakota', value: 'SD' },
-        { label: 'Tennessee', value: 'TN' },
-        { label: 'Texas', value: 'TX' },
-        { label: 'Utah', value: 'UT' },
-        { label: 'Vermont', value: 'VT' },
-        { label: 'Virginia', value: 'VA' },
-        { label: 'Washington', value: 'WA' },
-        { label: 'West Virginia', value: 'WV' },
-        { label: 'Wisconsin', value: 'WI' },
-        { label: 'Wyoming', value: 'WY' }
+        { label: 'Alabama', abbrv: 'AL' },
+        { label: 'Alaska', abbrv: 'AK' },
+        { label: 'Arizona', abbrv: 'AZ' },
+        { label: 'Arkansas', abbrv: 'AR' },
+        { label: 'California', abbrv: 'CA' },
+        { label: 'Colorado', abbrv: 'CO' },
+        { label: 'Connecticut', abbrv: 'CT' },
+        { label: 'Delaware', abbrv: 'DE' },
+        { label: 'Florida', abbrv: 'FL' },
+        { label: 'Georgia', abbrv: 'GA' },
+        { label: 'Hawaii', abbrv: 'HI' },
+        { label: 'Idaho', abbrv: 'ID' },
+        { label: 'Illinois', abbrv: 'IL' },
+        { label: 'Indiana', abbrv: 'IN' },
+        { label: 'Iowa', abbrv: 'IA' },
+        { label: 'Kansas', abbrv: 'KS' },
+        { label: 'Kentucky', abbrv: 'KY' },
+        { label: 'Louisiana', abbrv: 'LA' },
+        { label: 'Maine', abbrv: 'ME' },
+        { label: 'Maryland', abbrv: 'MD' },
+        { label: 'Massachusetts', abbrv: 'MA' },
+        { label: 'Michigan', abbrv: 'MI' },
+        { label: 'Minnesota', abbrv: 'MN' },
+        { label: 'Mississippi', abbrv: 'MS' },
+        { label: 'Missouri', abbrv: 'MO' },
+        { label: 'Montana', abbrv: 'MT' },
+        { label: 'Nebraska', abbrv: 'NE' },
+        { label: 'Nevada', abbrv: 'NV' },
+        { label: 'New Hampshire', abbrv: 'NH' },
+        { label: 'New Jersey', abbrv: 'NJ' },
+        { label: 'New Mexico', abbrv: 'NM' },
+        { label: 'New York', abbrv: 'NY' },
+        { label: 'North Carolina', abbrv: 'NC' },
+        { label: 'North Dakota', abbrv: 'ND' },
+        { label: 'Ohio', abbrv: 'OH' },
+        { label: 'Oklahoma', abbrv: 'OK' },
+        { label: 'Oregon', abbrv: 'OR' },
+        { label: 'Pennsylvania', abbrv: 'PA' },
+        { label: 'Rhode Island', abbrv: 'RI' },
+        { label: 'South Carolina', abbrv: 'SC' },
+        { label: 'South Dakota', abbrv: 'SD' },
+        { label: 'Tennessee', abbrv: 'TN' },
+        { label: 'Texas', abbrv: 'TX' },
+        { label: 'Utah', abbrv: 'UT' },
+        { label: 'Vermont', abbrv: 'VT' },
+        { label: 'Virginia', abbrv: 'VA' },
+        { label: 'Washington', abbrv: 'WA' },
+        { label: 'West Virginia', abbrv: 'WV' },
+        { label: 'Wisconsin', abbrv: 'WI' },
+        { label: 'Wyoming', abbrv: 'WY' }
     ];
 
     return (
         <TextField
+            select
             name="state"
             label="State"
-            select
             variant="outlined"
             size="small"
             value={value}
@@ -71,7 +71,7 @@ export default function StateSelect({
             required={required}
         >
             {options.map((option) => (
-                <MenuItem key={option.value} value={option.value}>
+                <MenuItem key={option.label} value={option.label}>
                     {option.label}
                 </MenuItem>
             ))}

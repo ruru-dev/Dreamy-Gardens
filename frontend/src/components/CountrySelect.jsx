@@ -9,9 +9,9 @@ export default function CountrySelect({
 
     return (
         <TextField
+            select
             name="country"
             label="Country"
-            select
             variant="outlined"
             size="small"
             value={value}

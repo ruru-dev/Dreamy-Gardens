@@ -119,21 +119,64 @@ const createInspo = (req, res) => {
 
     // Send the query to our database, using the connection we created (db object).
     db.query(sql, params, function (err, results) {
-        // Handle scenario where an error occurs.
+        // If an error occurred while saving the inspo, send a 500 response 
         if (err) {
             console.log(
-                'An error occurred while attempting to insert into the database.',
+                'An error occurred while attempting to save the inspo to the database.',
                 err
             );
-            // sendStatus represents an HTTP response status - 500 is a server error
-            res.sendStatus(500);
+            return res.sendStatus(500);
         }
-        // Handle scenario where we successfully write to the database.
+        // Otherwise, attempt to save and link the tags to the inspo we just created
         else {
-            // Anything in the 200's is a success. 201 is a creation success. Will by default send "Created" message in the response body.
-            res.sendStatus(201);
+            const taggedPlantIds = req.body.tagged_plants || [];
+
+            // Verify that at least one plant was tagged on the inspo
+            if (taggedPlantIds.length <= 0 ) {
+                return res.status(400).send('The Inspo must contain at least one tagged plant.');
+            }
+
+            // Attempt to save the tags to the database
+            try {
+                saveTaggedPlants(results.insertId, taggedPlantIds);
+            } catch (err) {
+                return res.sendStatus(500);
+            }
+
+            // Return a 201 create success if the inspo AND its tags were successfully saved
+            return res.sendStatus(201);
         }
     });
 };
+
+const saveTaggedPlants = (inspoId, taggedPlantIds) => {
+    console.log('Attempting to save tags to the database')
+    const placeholders = [];
+    const params = [];
+
+    for (let plantId of taggedPlantIds) {
+        placeholders.push('(?,?)');
+        params.push(parseInt(inspoId), parseInt(plantId));
+    }
+    
+    const sql = `
+    INSERT INTO tag
+        (
+          inspo_id, 
+          plant_id
+        )
+    VALUES ${placeholders.join(',')}
+    `;
+
+    // Send the query to our database, using the connection we created (db object).
+    db.query(sql, params, function (err, results) {
+        if (err) {
+            console.log('An error occurred while attempting to save the tags to the database.', err);
+            throw err;
+        } else {
+            console.log('Done saving tags to the database')
+        }
+    });
+}
 
 module.exports = { listInspos, createInspo };

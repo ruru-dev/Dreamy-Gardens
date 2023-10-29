@@ -25,25 +25,32 @@ export const fetchGalleryInpos = async (dispatch) => {
 };
 
 export const fetchFeaturedInpos = async (dispatch) => {
-    const response = await axios.get(`${backendUrl}/api/inspos?keyword=featured`);
+    const response = await axios.get(
+        `${backendUrl}/api/inspos?keyword=featured`
+    );
     dispatch({
         type: 'FETCH_FEATURED_INSPOS',
         value: response.data
     });
 };
 
-export const createInspo = async (dispatch, formEl) => {
+export const createInspo = async (dispatch, formEl, taggedPlants) => {
+    const formData = new FormData(formEl);
+    for (let plant of taggedPlants) {
+        formData.append('tagged_plants', plant.id)
+    }
+
     console.log('in action - begin create inspo api call');
     let response;
     try {
-        response = await axios.post(`${backendUrl}/api/inspos`, new FormData(formEl));
+        response = await axios.post(`${backendUrl}/api/inspos`, formData);
         dispatch({
             type: 'CREATE_INSPO',
             value: response.data
         });
-    } catch(error) {
+    } catch (error) {
         response = error.response;
-    }    
+    }
     console.log('in action - end create inspo api call');
 
     return response;
@@ -58,9 +65,9 @@ export const createUser = async (dispatch, formValues) => {
             type: 'CREATE_USER',
             value: response.data
         });
-    } catch(error) {
+    } catch (error) {
         response = error.response;
-    }    
+    }
     console.log('in action - end create user api call');
 
     return response;

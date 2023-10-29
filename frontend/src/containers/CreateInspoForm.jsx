@@ -7,7 +7,7 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-    createInspo: (formData) => createInspo(dispatch, formData)
+    createInspo: (formEl, taggedPlants) => createInspo(dispatch, formEl, taggedPlants)
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(CreateInspoForm);

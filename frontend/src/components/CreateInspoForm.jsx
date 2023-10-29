@@ -15,6 +15,7 @@ import { alpha } from '@mui/material/styles';
 import ZoneSelect from './ZoneSelect';
 import StateSelect from './StateSelect';
 import CountrySelect from './CountrySelect';
+import TaggedPlantSelect from './TaggedPlantSelect';
 
 export default function CreateInspoForm({ createInspo }) {
     const [isWaiting, setIsWaiting] = useState(false);
@@ -30,18 +31,24 @@ export default function CreateInspoForm({ createInspo }) {
         fertilizer: '',
         additional_notes: ''
     });
+    const [taggedPlants, setTaggedPlants] = useState([]);
 
-    function handleChange(e) {
-        setFormValues({ ...formValues, [e.target.name]: e.target.value });
+    function handleChange(e,) {
         console.log(`value of ${e.target.name} changed`, e.target.value);
+        setFormValues({ ...formValues, [e.target.name]: e.target.value });
     }
+
+    function handleTagChange(e, newValue) {
+        console.log(`value of tagged_plants changed`, newValue);
+        setTaggedPlants(newValue);
+    } 
 
     async function handleSubmit(e) {
         e.preventDefault();
 
         console.log('in form - begin submit');
         setIsWaiting(true);
-        const response = await createInspo(e.target);
+        const response = await createInspo(e.target, taggedPlants);
         setIsWaiting(false);
         console.log('in form - end submit');
 
@@ -115,6 +122,17 @@ export default function CreateInspoForm({ createInspo }) {
                     />
                 </Typography>
                 <TextField
+                    name="image"
+                    helperText="Select an image to upload from your device."
+                    hiddenLabel
+                    type="file"
+                    variant="outlined"
+                    size="small"
+                    value={formValues.image}
+                    onChange={handleChange}
+                    required
+                />
+                <TextField
                     name="description"
                     label="Description"
                     type="text"
@@ -124,19 +142,14 @@ export default function CreateInspoForm({ createInspo }) {
                     onChange={handleChange}
                     required
                 />
-                <TextField
-                    name="image"
-                    helperText="Select an image to upload from your device."
-                    hiddenLabel
-                    type="file"
-                    variant="outlined"
-                    size="small"
-                    value={formValues.image}
-                    onChange={handleChange}
-                />
                 <ZoneSelect
                     value={formValues.zone}
                     handleChange={handleChange}
+                    required={true}
+                />
+                <TaggedPlantSelect
+                    value={taggedPlants}
+                    handleChange={handleTagChange}
                     required={true}
                 />
                 <Divider>Optional Fields</Divider>
