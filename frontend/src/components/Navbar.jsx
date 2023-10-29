@@ -16,7 +16,7 @@ export default function Navbar({ user, logoutUser }) {
                 <Toolbar>
                     <LocalFloristIcon
                         fontSize="medium"
-                        sx={{ mr: 0.75, color: '#FFFAA0' }}
+                        sx={{ mr: 0.75, color: '#FF8294' }}
                     />
                     <Typography variant="h6" sx={{ flexGrow: 1 }}>
                         Dreamy Gardens
