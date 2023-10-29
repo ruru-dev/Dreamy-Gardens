@@ -36,4 +36,13 @@ const inspos = (state = {}, action) => {
     }
 };
 
-export default combineReducers({ user, inspos });
+const plants = (state = [], action) => {
+    switch(action.type) {
+        case 'FETCH_PLANTS':
+            return action.value;
+        default:
+            return state;
+    }
+}
+
+export default combineReducers({ user, inspos, plants });

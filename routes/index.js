@@ -6,6 +6,7 @@ const router = express.Router();
 
 // Set up our main router to use the subrouters for each resource
 router.use('/inspos', require('./inspos'));
+router.use('/plants', require('./plants'));
 router.use('/users', require('./users'));
 
 module.exports = router;

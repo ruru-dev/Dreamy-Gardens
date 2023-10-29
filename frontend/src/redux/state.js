@@ -9,7 +9,8 @@ const state = {
     inspos: {
         featured: [],
         gallery: []
-    }
+    },
+    plants: []
 };
 
 export default state;

@@ -15,7 +15,7 @@ import { alpha } from '@mui/material/styles';
 import ZoneSelect from './ZoneSelect';
 import StateSelect from './StateSelect';
 import CountrySelect from './CountrySelect';
-import TaggedPlantSelect from './TaggedPlantSelect';
+import TaggedPlantSelect from '../containers/TaggedPlantSelect';
 
 export default function CreateInspoForm({ createInspo }) {
     const [isWaiting, setIsWaiting] = useState(false);
@@ -85,6 +85,7 @@ export default function CreateInspoForm({ createInspo }) {
             formValues[field] = '';
         }
         setFormValues({ ...formValues });
+        setTaggedPlants([]);
     }
 
     return (

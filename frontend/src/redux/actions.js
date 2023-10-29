@@ -1,5 +1,7 @@
 import axios from 'axios';
 
+const backendUrl = process.env.REACT_APP_BACKEND_URL || '';
+
 export const loginUser = (credentials) => {
     return {
         type: 'LOGIN_USER',
@@ -13,8 +15,6 @@ export const logoutUser = () => {
         value: null
     };
 };
-
-const backendUrl = process.env.REACT_APP_BACKEND_URL || '';
 
 export const fetchGalleryInpos = async (dispatch) => {
     const response = await axios.get(`${backendUrl}/api/inspos`);
@@ -71,4 +71,12 @@ export const createUser = async (dispatch, formValues) => {
     console.log('in action - end create user api call');
 
     return response;
+};
+
+export const fetchPlants = async (dispatch) => {
+    const response = await axios.get(`${backendUrl}/api/plants`);
+    dispatch({
+        type: 'FETCH_PLANTS',
+        value: response.data
+    });
 };

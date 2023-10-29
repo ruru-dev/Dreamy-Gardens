@@ -1,16 +1,23 @@
+import { useEffect } from 'react';
 import { Autocomplete, TextField } from '@mui/material';
 
 export default function TaggedPlantSelect({
+    plants,
+    fetchPlants,
     value = [],
     handleChange,
     required = false
 }) {
-    const options = [
-        { label: 'Knockout Rose', id: 1 },
-        { label: 'Blue Point Juniper', id: 2 },
-        { label: 'Limelight Prime Hydrangea', id: 3 },
-        { label: 'Sweet Viburnum', id: 4 }
-    ];
+    useEffect(() => {
+        if (!plants.length) {
+            fetchPlants();
+        }
+    }, []);
+
+    const options = plants.map((plant) => ({
+        label: plant.common_name,
+        id: plant.id
+    }));
 
     return (
         <Autocomplete
@@ -19,6 +26,7 @@ export default function TaggedPlantSelect({
             value={value}
             onChange={handleChange}
             isOptionEqualToValue={(option, value) => value.id === option.id}
+            autoHighlight
             renderInput={(params) => (
                 <TextField
                     {...params}
