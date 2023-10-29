@@ -1,4 +1,4 @@
--- Active: 1696814090562@@database-1.cx1cyrefruio.us-east-2.rds.amazonaws.com@3306@dreamy_gardens
+-- Active: 1696784798147@@database-1.cx1cyrefruio.us-east-2.rds.amazonaws.com@3306@dreamy_gardens
 DELETE FROM `tag`;
 DELETE FROM `inspo`;
 DELETE FROM `plant`;
@@ -63,7 +63,7 @@ INSERT INTO
 VALUES (
         2,
         'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean convallis vitae quam eu egestas. Nunc sodales tellus nisi, sed iaculis lacus eleifend sit amet. Nunc vitae odio sem. Sed tellus orci, pellentesque nec orci facilisis, varius blandit orci.',
-        'https://i.pinimg.com/1200x/8a/1d/a3/8a1da3eaa79ba290da5bac6f76b69048.jpg',
+        'https://res.cloudinary.com/dt9rtlkoi/image/upload/v1698612238/dreamy-gardens/samples/8a1da3eaa79ba290da5bac6f76b69048_gft3pv.jpg',
         CURRENT_TIMESTAMP,
         CURRENT_TIMESTAMP,
         '6b',
@@ -77,7 +77,7 @@ VALUES (
     ), (
         3,
         'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean convallis vitae quam eu egestas. Nunc sodales tellus nisi, sed iaculis lacus eleifend sit amet. Nunc vitae odio sem. Sed tellus orci, pellentesque nec orci facilisis, varius blandit orci.',
-        'https://static.wixstatic.com/media/202305_baa05835051b420a87caae545e08e012~mv2.jpg/v1/fill/w_640,h_382,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/202305_baa05835051b420a87caae545e08e012~mv2.jpg',
+        'https://res.cloudinary.com/dt9rtlkoi/image/upload/v1698612526/dreamy-gardens/samples/202305_baa05835051b420a87caae545e08e012_mv2_gc72fv.jpg',
         CURRENT_TIMESTAMP,
         CURRENT_TIMESTAMP,
         '7a',
@@ -91,7 +91,7 @@ VALUES (
     ), (
         4,
         'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean convallis vitae quam eu egestas. Nunc sodales tellus nisi, sed iaculis lacus eleifend sit amet. Nunc vitae odio sem. Sed tellus orci, pellentesque nec orci facilisis, varius blandit orci.',
-        'https://images.squarespace-cdn.com/content/v1/5ad65e9525bf0201d1256639/97b155a5-838e-4c40-bf79-26b1fc1df673/7P6A5769-DESKTOP-HG1ULRK.jpg',
+        'https://res.cloudinary.com/dt9rtlkoi/image/upload/v1698612555/dreamy-gardens/samples/7P6A5769-DESKTOP-HG1ULRK_umyhi5.jpg',
         CURRENT_TIMESTAMP,
         CURRENT_TIMESTAMP,
         '7a',
@@ -105,7 +105,7 @@ VALUES (
     ), (
         2,
         'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean convallis vitae quam eu egestas. Nunc sodales tellus nisi, sed iaculis lacus eleifend sit amet. Nunc vitae odio sem. Sed tellus orci, pellentesque nec orci facilisis, varius blandit orci.',
-        'https://i.pinimg.com/1200x/76/d0/f2/76d0f26b710fb9de57fafb4c96881309.jpg',
+        'https://res.cloudinary.com/dt9rtlkoi/image/upload/v1698612581/dreamy-gardens/samples/76d0f26b710fb9de57fafb4c96881309_jwjjkq.jpg',
         CURRENT_TIMESTAMP,
         CURRENT_TIMESTAMP,
         '6b',
@@ -119,7 +119,7 @@ VALUES (
     ), (
         3,
         'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean convallis vitae quam eu egestas. Nunc sodales tellus nisi, sed iaculis lacus eleifend sit amet. Nunc vitae odio sem. Sed tellus orci, pellentesque nec orci facilisis, varius blandit orci.',
-        'https://images.405magazine.com/wp-content/uploads/2022/02/07-July-Feature-Outdoor-Focus-2.jpg',
+        'https://res.cloudinary.com/dt9rtlkoi/image/upload/v1698612605/dreamy-gardens/samples/07-July-Feature-Outdoor-Focus-2_lrb5en.jpg',
         CURRENT_TIMESTAMP,
         CURRENT_TIMESTAMP,
         '7a',
@@ -133,7 +133,7 @@ VALUES (
     ), (
         4,
         'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean convallis vitae quam eu egestas. Nunc sodales tellus nisi, sed iaculis lacus eleifend sit amet. Nunc vitae odio sem. Sed tellus orci, pellentesque nec orci facilisis, varius blandit orci.',
-        'https://images.squarespace-cdn.com/content/v1/5ad65e9525bf0201d1256639/1ad2969f-8b6b-4b05-86fa-17ad83550ea8/7P6A9454.jpg?format=2500w',
+        'https://res.cloudinary.com/dt9rtlkoi/image/upload/v1698612672/dreamy-gardens/samples/7P6A9454_j1s2hr.jpg',
         CURRENT_TIMESTAMP,
         CURRENT_TIMESTAMP,
         '7a',
@@ -147,7 +147,7 @@ VALUES (
     ), (
         2,
         'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean convallis vitae quam eu egestas. Nunc sodales tellus nisi, sed iaculis lacus eleifend sit amet. Nunc vitae odio sem. Sed tellus orci, pellentesque nec orci facilisis, varius blandit orci.',
-        'https://i.ytimg.com/vi/-AQLz4YtML0/maxresdefault.jpg',
+        'https://res.cloudinary.com/dt9rtlkoi/image/upload/v1698613232/dreamy-gardens/samples/niqwplixgzm8qe6rtiie.jpg',
         CURRENT_TIMESTAMP,
         CURRENT_TIMESTAMP,
         '6b',
@@ -161,7 +161,7 @@ VALUES (
     ), (
         3,
         'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean convallis vitae quam eu egestas. Nunc sodales tellus nisi, sed iaculis lacus eleifend sit amet. Nunc vitae odio sem. Sed tellus orci, pellentesque nec orci facilisis, varius blandit orci.',
-        'https://cdn.shopify.com/s/files/1/1308/4845/files/Screen-Shot-2021-10-25-at-4.06.57-PM.jpg?v=1635192739',        
+        'https://res.cloudinary.com/dt9rtlkoi/image/upload/v1698613321/dreamy-gardens/samples/wwo51hxfbzvi5xjydz2d.jpg',        
         CURRENT_TIMESTAMP,
         CURRENT_TIMESTAMP,
         '7a',
@@ -175,7 +175,7 @@ VALUES (
     ), (
         4,
         'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean convallis vitae quam eu egestas. Nunc sodales tellus nisi, sed iaculis lacus eleifend sit amet. Nunc vitae odio sem. Sed tellus orci, pellentesque nec orci facilisis, varius blandit orci.',
-        'https://images.squarespace-cdn.com/content/v1/5ad65e9525bf0201d1256639/e6293c55-c833-4e7d-a48a-f7de76763088/7P6A6679.jpg',
+        'https://res.cloudinary.com/dt9rtlkoi/image/upload/v1698613436/dreamy-gardens/samples/7P6A6679_rpqs54.jpg',
         CURRENT_TIMESTAMP,
         CURRENT_TIMESTAMP,
         '7a',
@@ -373,3 +373,28 @@ VALUES (
         'Moderate',
         'Yes'
     );
+
+INSERT INTO
+    `tag` (
+        `inspo_id`,
+        `plant_id`
+    )
+VALUES 
+    (1,3),
+    (1,5),
+    (2,2),
+    (2,11),
+    (3,11),
+    (4,1),
+    (4,7),
+    (5,5),
+    (5,8),
+    (6,10),
+    (7,4),
+    (7,5),
+    (7,6),
+    (7,7),
+    (8,2),
+    (8,5),
+    (8,12),
+    (9,9)
