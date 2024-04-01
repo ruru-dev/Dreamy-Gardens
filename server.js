@@ -1,6 +1,8 @@
 // In order to use the express npm package you need to require it
 const express = require('express');
+// Add on NPM package to express.
 const path = require('path');
+// Add on NPM package to express.
 const bodyParser = require('body-parser');
 
 /*
@@ -33,9 +35,10 @@ app.use(cors());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 /*
- * This is a .json method on the bodyParser object
- * 
+ * This is a .json method on the bodyParser object.
+ *
  * It will parse the incoming request body as json for us.
+ * Body parser is an NPM package that we installed.
  */ 
 app.use(bodyParser.json());
 
@@ -54,7 +57,7 @@ app.use(express.static('public'));
  * - Search for an express route that matches the path in the url.
  * - (e.g. http://dreamygardens.com/api/inspos)
  */
-app.use('/api', require('./routes'));
+app.use('/api', require('./routes/index.js'));
 
 /*
  * If the route isn't found in the backend API, load the frontend and attempt to route to a page.
